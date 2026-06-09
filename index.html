@@ -82,8 +82,8 @@ section { padding: 4rem 3rem; border-bottom: 0.5px solid var(--rule); }
 .linkedin-intro { font-size: 0.85rem; line-height: 1.8; color: var(--ink-muted); max-width: 60ch; margin-bottom: 2.5rem; }
 .linkedin-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border: 0.5px solid var(--rule); }
 .linkedin-item { border-right: 0.5px solid var(--rule); text-decoration: none; color: var(--ink); display: block; transition: background 0.2s; overflow: hidden; }
-.linkedin-thumb { width: 100%; aspect-ratio: 4/3; overflow: hidden; background: #1a1a18; }
-.linkedin-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: opacity 0.3s; }
+.linkedin-thumb { width: 100%; aspect-ratio: 3/4; overflow: hidden; background: var(--cream); }
+.linkedin-thumb img { width: 100%; height: 100%; object-fit: contain; display: block; transition: opacity 0.3s; }
 .linkedin-item:hover .linkedin-thumb img { opacity: 0.85; }
 .linkedin-caption { padding: 1rem 1.2rem; }
 .linkedin-item:last-child { border-right: none; }
@@ -137,7 +137,7 @@ footer { padding: 2rem 3rem; border-top: 0.5px solid var(--rule); display: flex;
     <em style="color: var(--ink-muted);">Creative storytelling.</em><br>
     Meaningful impact.
   </h1>
-  <p style="font-size: 0.88rem; line-height: 1.9; color: var(--ink-muted);">Sara is a communications strategist and multimedia storyteller specializing in digital communications, content strategy, and editorial storytelling. Through video, social media, and brand communications, she transforms complex issues into compelling narratives that drive engagement, advocacy, and impact.</p>
+  <p style="font-size: 0.88rem; line-height: 1.9; color: var(--ink-muted);">Sara is a communications strategist specializing in digital communications, content strategy, and editorial storytelling. Through video, social media, and brand communications, she transforms complex issues into compelling narratives that drive engagement, advocacy, and impact.</p>
 </div>
 
 
@@ -424,7 +424,7 @@ footer { padding: 2rem 3rem; border-top: 0.5px solid var(--rule); display: flex;
       <span style="color:var(--rule);">·</span>
       <span style="color:var(--accent);">Daily Sabah</span>
       <span style="color:var(--rule);">·</span>
-      <span style="color:var(--accent);">SOC Films</span><span> — two-time Oscar-winning production house</span>
+      <span style="color:var(--accent);">SOC Films</span>
     </div>
   </div>
 </section>
@@ -433,7 +433,7 @@ footer { padding: 2rem 3rem; border-top: 0.5px solid var(--rule); display: flex;
   <div class="footer-contact">
     <a href="mailto:sara.faruqi@gmail.com">sara.faruqi@gmail.com</a>
   </div>
-  <p class="footer-note">Sara Faruqi — Content &amp; Video Production</p>
+  <a href="sara_faruqi_resume.pdf" target="_blank" class="footer-note" style="text-decoration:none; color:var(--accent);">Download Resume ↗</a>
 </footer>
 
 </body>
