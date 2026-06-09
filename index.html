@@ -1,339 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sara Faruqi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
-.sf-wrap *, .sf-wrap *::before, .sf-wrap *::after { box-sizing: border-box; margin: 0; padding: 0; }
-.sf-wrap {
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
   --cream: #F6F3EC; --ink: #1C1F1A; --ink-muted: #6A6E64; --rule: #CDD0C5; --accent: #2E5E3A;
   --accent-light: rgba(46,94,58,0.08);
   --serif: 'Playfair Display', Georgia, serif; --mono: 'DM Mono', monospace;
-  background: var(--cream); color: var(--ink); font-family: var(--mono); font-weight: 300;
-  letter-spacing: 0.01em; width: 100%;
 }
-.sf-nav { display: flex; justify-content: space-between; align-items: baseline; padding: 2rem 3rem; border-bottom: 0.5px solid var(--rule); }
-.sf-nav-name { font-family: var(--serif); font-size: 1.1rem; letter-spacing: 0.02em; }
-.sf-nav-links { display: flex; gap: 1.6rem; list-style: none; flex-wrap: wrap; }
-.sf-nav-links a { text-decoration: none; color: var(--ink-muted); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
-.sf-nav-links a:hover { color: var(--accent); }
-.sf-hero { padding: 5rem 3rem 4rem; border-bottom: 0.5px solid var(--rule); display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: end; }
-.sf-hero-eyebrow { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; }
-.sf-hero-title { font-family: var(--serif); font-size: clamp(2.8rem, 5vw, 4.2rem); line-height: 1.08; font-weight: 400; }
-.sf-hero-title em { font-style: italic; color: var(--ink-muted); }
-.sf-hero-desc { font-size: 0.85rem; line-height: 1.8; color: var(--ink-muted); max-width: 38ch; align-self: end; }
-.sf-hero-desc p + p { margin-top: 1rem; }
-.sf-section { padding: 4rem 3rem; border-bottom: 0.5px solid var(--rule); }
-.sf-section-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 3rem; }
-.sf-section-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-muted); white-space: nowrap; }
-.sf-section-rule { flex: 1; height: 0.5px; background: var(--rule); }
-.sf-work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-.sf-work-item { padding: 2.5rem 0; border-bottom: 0.5px solid var(--rule); display: grid; grid-template-columns: auto 1fr auto; gap: 1.5rem; align-items: start; }
-.sf-work-item:nth-child(odd) { border-right: 0.5px solid var(--rule); padding-right: 3rem; }
-.sf-work-item:nth-child(even) { padding-left: 3rem; }
-.sf-work-item:last-child, .sf-work-item:nth-last-child(2):nth-child(odd) { border-bottom: none; }
-.sf-work-num { font-family: var(--serif); font-size: 0.75rem; color: var(--accent); padding-top: 0.1rem; font-style: italic; }
-.sf-work-tag { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.5rem; }
-.sf-work-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 500; margin-bottom: 0.4rem; line-height: 1.3; }
-.sf-work-role { font-size: 0.72rem; color: var(--ink-muted); margin-bottom: 0.6rem; }
-.sf-work-desc { font-size: 0.75rem; line-height: 1.7; color: var(--ink-muted); max-width: 40ch; }
-.sf-work-link { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); text-decoration: none; padding-top: 0.1rem; white-space: nowrap; transition: opacity 0.2s; }
-.sf-work-link:hover { opacity: 0.6; }
-.sf-polio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-.sf-polio-item { padding: 2.5rem 0; display: grid; grid-template-columns: auto 1fr auto; gap: 1.5rem; align-items: start; }
-.sf-polio-item:first-child { border-right: 0.5px solid var(--rule); padding-right: 3rem; }
-.sf-polio-item:last-child { padding-left: 3rem; }
-.sf-social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 0.5px solid var(--rule); }
-.sf-social-item { padding: 1.8rem 1.5rem; border-right: 0.5px solid var(--rule); text-decoration: none; color: var(--ink); display: block; transition: background 0.2s; }
-.sf-social-item:last-child { border-right: none; }
-.sf-social-item:hover { background: var(--accent-light); }
-.sf-social-subject { font-family: var(--serif); font-size: 0.9rem; margin-bottom: 0.3rem; line-height: 1.3; }
-.sf-social-sub { font-size: 0.65rem; color: var(--ink-muted); letter-spacing: 0.06em; }
-.sf-linkedin-intro { font-size: 0.85rem; line-height: 1.8; color: var(--ink-muted); max-width: 60ch; margin-bottom: 2.5rem; }
-.sf-linkedin-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border: 0.5px solid var(--rule); }
-.sf-linkedin-item { padding: 1.5rem 1.2rem; border-right: 0.5px solid var(--rule); text-decoration: none; color: var(--ink); display: block; transition: background 0.2s; }
-.sf-linkedin-item:last-child { border-right: none; }
-.sf-linkedin-item:hover { background: var(--accent-light); }
-.sf-linkedin-label { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
-.sf-linkedin-title { font-family: var(--serif); font-size: 0.82rem; line-height: 1.4; }
-.sf-before-after { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 0.5px solid var(--rule); }
-.sf-ba-side:first-child { border-right: 0.5px solid var(--rule); }
-.sf-ba-label-bar { padding: 0.8rem 1.5rem; border-bottom: 0.5px solid var(--rule); display: flex; align-items: center; gap: 0.8rem; }
-.sf-ba-year { font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); }
-.sf-ba-pill { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 2px; }
-.sf-ba-pill.before { background: #E4E2DA; color: var(--ink-muted); }
-.sf-ba-pill.after { background: rgba(46,94,58,0.12); color: var(--accent); }
-.sf-ba-screen { min-height: 260px; background: #E4E2D8; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; padding: 2rem; }
-.sf-ba-screen-placeholder { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: #9EA098; text-align: center; }
-.sf-ba-screen-note { font-size: 0.62rem; color: #B2B5AA; text-align: center; line-height: 1.6; max-width: 22ch; }
-.sf-ba-caption { padding: 1.2rem 1.5rem; border-top: 0.5px solid var(--rule); }
-.sf-ba-caption-title { font-family: var(--serif); font-size: 0.88rem; margin-bottom: 0.3rem; }
-.sf-ba-caption-desc { font-size: 0.7rem; color: var(--ink-muted); line-height: 1.7; }
-.sf-rebrand-scope { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 0.5px solid var(--rule); border-top: none; }
-.sf-scope-item { padding: 1.2rem 1.5rem; border-right: 0.5px solid var(--rule); }
-.sf-scope-item:last-child { border-right: none; }
-.sf-scope-label { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
-.sf-scope-val { font-size: 0.78rem; line-height: 1.6; color: var(--ink-muted); }
-.sf-about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
-.sf-about-aside { font-size: 0.72rem; line-height: 1.8; color: var(--ink-muted); }
-.sf-about-aside strong { display: block; font-weight: 400; color: var(--ink); font-family: var(--serif); font-size: 1rem; margin-bottom: 0.5rem; font-style: italic; }
-.sf-about-main { font-size: 0.88rem; line-height: 1.9; color: var(--ink-muted); }
-.sf-about-main p + p { margin-top: 1.2rem; }
-.sf-press-strip { display: flex; gap: 2.5rem; align-items: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 0.5px solid var(--rule); flex-wrap: wrap; }
-.sf-press-outlet { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); }
-.sf-press-outlet span { color: var(--accent); }
-.sf-press-dot { color: var(--rule); }
-.sf-footer { padding: 2rem 3rem; border-top: 0.5px solid var(--rule); display: flex; justify-content: space-between; align-items: center; }
-.sf-footer-contact a { font-size: 0.75rem; color: var(--accent); text-decoration: none; letter-spacing: 0.06em; }
-.sf-footer-note { font-size: 0.65rem; color: var(--ink-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+body { background: var(--cream); color: var(--ink); font-family: var(--mono); font-weight: 300; letter-spacing: 0.01em; min-height: 100vh; }
+
+nav { display: flex; justify-content: space-between; align-items: baseline; padding: 2rem 3rem; border-bottom: 0.5px solid var(--rule); flex-wrap: wrap; gap: 1rem; }
+.nav-name { font-family: var(--serif); font-size: 1.1rem; letter-spacing: 0.02em; }
+.nav-links { display: flex; gap: 1.4rem; list-style: none; flex-wrap: wrap; }
+.nav-links a { text-decoration: none; color: var(--ink-muted); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: var(--accent); }
+
+.hero { padding: 5rem 3rem 4rem; border-bottom: 0.5px solid var(--rule); display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: end; }
+.hero-eyebrow { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; }
+.hero-title { font-family: var(--serif); font-size: clamp(2.8rem, 5vw, 4.2rem); line-height: 1.08; font-weight: 400; }
+.hero-title em { font-style: italic; color: var(--ink-muted); }
+.hero-desc { font-size: 0.85rem; line-height: 1.8; color: var(--ink-muted); max-width: 38ch; align-self: end; }
+.hero-desc p + p { margin-top: 1rem; }
+
+section { padding: 4rem 3rem; border-bottom: 0.5px solid var(--rule); }
+.section-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 3rem; }
+.section-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-muted); white-space: nowrap; }
+.section-rule { flex: 1; height: 0.5px; background: var(--rule); }
+
+/* Video grid with thumbnails */
+.video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.video-item { padding: 0; border-bottom: 0.5px solid var(--rule); display: flex; flex-direction: column; }
+.video-item:nth-child(odd) { border-right: 0.5px solid var(--rule); }
+.video-item:last-child, .video-item:nth-last-child(2):nth-child(odd) { border-bottom: none; }
+.video-thumb { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #1a1a18; }
+.video-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.3s; }
+.video-thumb:hover img { opacity: 0.85; }
+.play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 48px; height: 48px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+.play-btn::after { content: ''; border-left: 18px solid var(--accent); border-top: 11px solid transparent; border-bottom: 11px solid transparent; margin-left: 4px; }
+.video-body { padding: 1.5rem 2rem 2rem; flex: 1; display: flex; flex-direction: column; gap: 0.4rem; }
+.video-tag { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); }
+.video-title { font-family: var(--serif); font-size: 1rem; font-weight: 500; line-height: 1.3; }
+.video-role { font-size: 0.72rem; color: var(--ink-muted); }
+.video-desc { font-size: 0.75rem; line-height: 1.7; color: var(--ink-muted); margin-top: 0.3rem; flex: 1; }
+.video-link { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); text-decoration: none; margin-top: 0.8rem; align-self: flex-start; transition: opacity 0.2s; }
+.video-link:hover { opacity: 0.6; }
+
+/* Polio */
+.polio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.polio-item { padding: 2.5rem 0; display: grid; grid-template-columns: auto 1fr auto; gap: 1.5rem; align-items: start; }
+.polio-item:first-child { border-right: 0.5px solid var(--rule); padding-right: 3rem; }
+.polio-item:last-child { padding-left: 3rem; }
+.polio-num { font-family: var(--serif); font-size: 0.75rem; color: var(--accent); padding-top: 0.1rem; font-style: italic; }
+.work-tag { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.5rem; }
+.work-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 500; margin-bottom: 0.4rem; line-height: 1.3; }
+.work-role { font-size: 0.72rem; color: var(--ink-muted); margin-bottom: 0.6rem; }
+.work-desc { font-size: 0.75rem; line-height: 1.7; color: var(--ink-muted); max-width: 40ch; }
+.work-link { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); text-decoration: none; padding-top: 0.1rem; white-space: nowrap; transition: opacity 0.2s; }
+.work-link:hover { opacity: 0.6; }
+
+/* Social grid with thumbnails */
+.social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 0.5px solid var(--rule); }
+.social-item { text-decoration: none; color: var(--ink); display: block; transition: background 0.2s; border-right: 0.5px solid var(--rule); overflow: hidden; }
+.social-item:last-child { border-right: none; }
+.social-item:hover { background: var(--accent-light); }
+.social-thumb { width: 100%; aspect-ratio: 9/16; overflow: hidden; background: #1a1a18; max-height: 220px; }
+.social-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.social-thumb-yt { width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #1a1a18; }
+.social-thumb-yt img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.social-caption { padding: 1rem 1.2rem; }
+.social-subject { font-family: var(--serif); font-size: 0.88rem; margin-bottom: 0.3rem; line-height: 1.3; }
+.social-sub { font-size: 0.62rem; color: var(--ink-muted); letter-spacing: 0.06em; }
+
+/* LinkedIn */
+.linkedin-intro { font-size: 0.85rem; line-height: 1.8; color: var(--ink-muted); max-width: 60ch; margin-bottom: 2.5rem; }
+.linkedin-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border: 0.5px solid var(--rule); }
+.linkedin-item { padding: 1.5rem 1.2rem; border-right: 0.5px solid var(--rule); text-decoration: none; color: var(--ink); display: block; transition: background 0.2s; }
+.linkedin-item:last-child { border-right: none; }
+.linkedin-item:hover { background: var(--accent-light); }
+.linkedin-label { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+.linkedin-title { font-family: var(--serif); font-size: 0.82rem; line-height: 1.4; }
+
+/* Writing */
+.writing-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.writing-item { padding: 1.8rem 0; border-bottom: 0.5px solid var(--rule); display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: center; }
+.writing-item:nth-child(odd) { border-right: 0.5px solid var(--rule); padding-right: 3rem; }
+.writing-item:nth-child(even) { padding-left: 3rem; }
+.writing-item:last-child, .writing-item:nth-last-child(2):nth-child(odd) { border-bottom: none; }
+.writing-pub { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.4rem; }
+.writing-title { font-family: var(--serif); font-size: 0.95rem; line-height: 1.4; }
+.writing-link { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); text-decoration: none; white-space: nowrap; transition: opacity 0.2s; }
+.writing-link:hover { opacity: 0.6; }
+
+/* About */
+.about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
+.about-aside { font-size: 0.72rem; line-height: 1.8; color: var(--ink-muted); }
+.about-aside strong { display: block; font-weight: 400; color: var(--ink); font-family: var(--serif); font-size: 1rem; margin-bottom: 0.5rem; font-style: italic; }
+.about-main { font-size: 0.88rem; line-height: 1.9; color: var(--ink-muted); }
+.about-main p + p { margin-top: 1.2rem; }
+.press-strip { display: flex; gap: 2rem; align-items: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 0.5px solid var(--rule); flex-wrap: wrap; }
+.press-outlet { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); }
+.press-outlet span { color: var(--accent); }
+.press-dot { color: var(--rule); }
+
+footer { padding: 2rem 3rem; border-top: 0.5px solid var(--rule); display: flex; justify-content: space-between; align-items: center; }
+.footer-contact a { font-size: 0.75rem; color: var(--accent); text-decoration: none; letter-spacing: 0.06em; }
+.footer-note { font-size: 0.65rem; color: var(--ink-muted); letter-spacing: 0.08em; text-transform: uppercase; }
 </style>
+</head>
+<body>
 
-<div class="sf-wrap">
-
-<nav class="sf-nav">
-  <span class="sf-nav-name">Sara Faruqi</span>
-  <ul class="sf-nav-links">
-    <li><a href="#sf-video">Video</a></li>
-    <li><a href="#sf-polio">Polio</a></li>
-    <li><a href="#sf-social">Social</a></li>
-    <li><a href="#sf-linkedin">LinkedIn</a></li>
-    <li><a href="#sf-rebrand">Rebrand</a></li>
-    <li><a href="#sf-about">About</a></li>
-    <li><a href="#sf-contact">Contact</a></li>
+<nav>
+  <span class="nav-name">Sara Faruqi</span>
+  <ul class="nav-links">
+    <li><a href="#video">Video</a></li>
+    <li><a href="#polio">Polio</a></li>
+    <li><a href="#social">Social</a></li>
+    <li><a href="#linkedin">LinkedIn</a></li>
+    <li><a href="#writing">Writing</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<div class="sf-hero">
+<div class="hero">
   <div>
-    <p class="sf-hero-eyebrow">Content, Video &amp; Strategy</p>
-    <h1 class="sf-hero-title">Stories<br>that <em>move</em><br>people.</h1>
+    <p class="hero-eyebrow">Content, Video &amp; Strategy</p>
+    <h1 class="hero-title">Stories<br>that <em>move</em><br>people.</h1>
   </div>
-  <div class="sf-hero-desc">
-    <p>Sara Faruqi is a producer, editor, and content strategist with a background in international development communications — crafting films, campaigns, and digital content for organizations including UNICEF Canada and UNDP.</p>
-    <p>She specializes in turning complex issues into clear, compelling narratives for global audiences.</p>
+  <div class="hero-desc">
+    <p>Sara Faruqi is a communications strategist and multimedia storyteller specializing in digital communications, content strategy, and editorial storytelling. Drawing on expertise in video, social media, and brand communications, she transforms complex issues into compelling narratives that drive engagement, advocacy, and impact.</p>
   </div>
 </div>
 
-<section class="sf-section" id="sf-video">
-  <div class="sf-section-header">
-    <span class="sf-section-label">Long-form video</span>
-    <div class="sf-section-rule"></div>
+<!-- VIDEO -->
+<section id="video">
+  <div class="section-header">
+    <span class="section-label">Long-form video</span>
+    <div class="section-rule"></div>
   </div>
-  <div class="sf-work-grid">
-    <div class="sf-work-item">
-      <span class="sf-work-num">01</span>
-      <div>
-        <p class="sf-work-tag">UNICEF Canada</p>
-        <h3 class="sf-work-title">UNICEF in Ecuador</h3>
-        <p class="sf-work-role">Producer &amp; Editor</p>
-        <p class="sf-work-desc">Donor thank-you video featuring UNICEF Canada's CEO and President, deepening connection with supporters of the organization's field work.</p>
+  <div class="video-grid">
+
+    <a href="https://www.youtube.com/watch?v=brnw_wbrK8A" target="_blank" class="video-item" style="text-decoration:none; color:inherit;">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/brnw_wbrK8A/maxresdefault.jpg" alt="UNICEF in Ecuador">
+        <div class="play-btn"></div>
       </div>
-      <a class="sf-work-link" href="https://www.youtube.com/watch?v=brnw_wbrK8A" target="_blank">Watch ↗</a>
+      <div class="video-body">
+        <p class="video-tag">UNICEF Canada</p>
+        <h3 class="video-title">UNICEF in Ecuador</h3>
+        <p class="video-role">Producer &amp; Editor</p>
+        <p class="video-desc">Donor thank-you video featuring UNICEF Canada's CEO and President, deepening connection with supporters of the organization's field work.</p>
+        <span class="video-link">Watch ↗</span>
+      </div>
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=wPh0KebZx6k" target="_blank" class="video-item" style="text-decoration:none; color:inherit;">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/wPh0KebZx6k/maxresdefault.jpg" alt="Inclusive Business at the Nexus of Recovery">
+        <div class="play-btn"></div>
+      </div>
+      <div class="video-body">
+        <p class="video-tag">UNDP Business Call to Action</p>
+        <h3 class="video-title">Inclusive Business at the Nexus of Recovery</h3>
+        <p class="video-role">Producer</p>
+        <p class="video-desc">Event video for the 11th Annual Forum, capturing the scope and energy of a global gathering on post-crisis economic inclusion.</p>
+        <span class="video-link">Watch ↗</span>
+      </div>
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=2zSP_cN3fdE" target="_blank" class="video-item" style="text-decoration:none; color:inherit;">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/2zSP_cN3fdE/maxresdefault.jpg" alt="Kapuscinski Development Lectures">
+        <div class="play-btn"></div>
+      </div>
+      <div class="video-body">
+        <p class="video-tag">UNDP Eurasia — KDL Talks</p>
+        <h3 class="video-title">Kapuscinski Development Lectures</h3>
+        <p class="video-role">Producer &amp; Editor</p>
+        <p class="video-desc">One of five short-form adaptations of hour-long lectures, distilled into accessible, shareable pieces for a broader global audience.</p>
+        <span class="video-link">Watch ↗</span>
+      </div>
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=ADlB_HCwuTk" target="_blank" class="video-item" style="text-decoration:none; color:inherit;">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/ADlB_HCwuTk/maxresdefault.jpg" alt="Women Unlimited: The Next Chapter">
+        <div class="play-btn"></div>
+      </div>
+      <div class="video-body">
+        <p class="video-tag">UNICEF Canada</p>
+        <h3 class="video-title">Women Unlimited: The Next Chapter</h3>
+        <p class="video-role">Producer &amp; Editor</p>
+        <p class="video-desc">A portrait of women breaking barriers and building futures, produced for UNICEF Canada's Women Unlimited initiative.</p>
+        <span class="video-link">Watch ↗</span>
+      </div>
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=pFvwNzvqK3Q" target="_blank" class="video-item" style="text-decoration:none; color:inherit;">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/pFvwNzvqK3Q/maxresdefault.jpg" alt="A Place of Comfort">
+        <div class="play-btn"></div>
+      </div>
+      <div class="video-body">
+        <p class="video-tag">Yusra Community Center</p>
+        <h3 class="video-title">A Place of Comfort</h3>
+        <p class="video-role">Videographer, Producer &amp; Editor</p>
+        <p class="video-desc">Yusra Community Center provides a fun and safe learning space for Syrian refugee children who otherwise have no access to learning. It is a place of guidance for families, providing or assisting with medical needs, legal matters, skills training, language and literacy facilities, and information services.</p>
+        <span class="video-link">Watch ↗</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- POLIO -->
+<section id="polio">
+  <div class="section-header">
+    <span class="section-label">Polio — journalism &amp; documentary</span>
+    <div class="section-rule"></div>
+  </div>
+  <div class="polio-grid">
+    <div class="polio-item">
+      <span class="polio-num">—</span>
+      <div>
+        <p class="work-tag">Dawn.com — Karachi, 2012</p>
+        <h3 class="work-title">Drops Full of Hope</h3>
+        <p class="work-role">Reporter, Editor &amp; Writer</p>
+        <p class="work-desc">Article and short online documentary following a polio campaign on the ground in Karachi — one of the world's most challenging environments for immunization efforts.</p>
+      </div>
+      <a class="work-link" href="https://www.dawn.com/news/692184/drops-full-of-hope" target="_blank">Read ↗</a>
     </div>
-    <div class="sf-work-item">
-      <span class="sf-work-num">02</span>
+    <div class="polio-item">
+      <span class="polio-num">—</span>
       <div>
-        <p class="sf-work-tag">UNDP Business Call to Action</p>
-        <h3 class="sf-work-title">Inclusive Business at the Nexus of Recovery</h3>
-        <p class="sf-work-role">Producer</p>
-        <p class="sf-work-desc">Event video for the 11th Annual Forum, capturing the scope and energy of a global gathering on post-crisis economic inclusion.</p>
+        <p class="work-tag">Five-part series — Karachi, 2013</p>
+        <h3 class="work-title">I Heart Karachi: Naseem Akhtar</h3>
+        <p class="work-role">Producer &amp; Director</p>
+        <p class="work-desc">A five-part series profiling ordinary people doing extraordinary work. This episode follows Naseem Akhtar, a lady health worker conducting polio drives in Karachi's highest-risk areas — undeterred by repeated death threats.</p>
+        <div style="margin-top:1rem;">
+          <a href="https://youtu.be/-T-KFEgbW_A?si=EPmCqPqPFMk30iM8" target="_blank" style="display:block;">
+            <div style="position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; background:#1a1a18; border-radius:2px;">
+              <img src="https://img.youtube.com/vi/-T-KFEgbW_A/maxresdefault.jpg" alt="I Heart Karachi" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <div class="play-btn"></div>
+            </div>
+          </a>
+        </div>
       </div>
-      <a class="sf-work-link" href="https://www.youtube.com/watch?v=wPh0KebZx6k" target="_blank">Watch ↗</a>
-    </div>
-    <div class="sf-work-item">
-      <span class="sf-work-num">03</span>
-      <div>
-        <p class="sf-work-tag">UNDP Eurasia — KDL Talks</p>
-        <h3 class="sf-work-title">Kapuscinski Development Lectures</h3>
-        <p class="sf-work-role">Producer &amp; Editor</p>
-        <p class="sf-work-desc">One of five short-form adaptations of hour-long lectures, distilled into accessible, shareable pieces for a broader global audience.</p>
-      </div>
-      <a class="sf-work-link" href="https://www.youtube.com/watch?v=2zSP_cN3fdE" target="_blank">Watch ↗</a>
-    </div>
-    <div class="sf-work-item">
-      <span class="sf-work-num">04</span>
-      <div>
-        <p class="sf-work-tag">More on request</p>
-        <h3 class="sf-work-title">Additional work available</h3>
-        <p class="sf-work-role">&nbsp;</p>
-        <p class="sf-work-desc">A selection of additional projects — branded content, editorial video, and internal communications — available upon request.</p>
-      </div>
-      <a class="sf-work-link" href="mailto:hello@sarafaruqi.com">Get in touch ↗</a>
+      <a class="work-link" href="https://youtu.be/-T-KFEgbW_A?si=EPmCqPqPFMk30iM8" target="_blank">Watch ↗</a>
     </div>
   </div>
 </section>
 
-<section class="sf-section" id="sf-polio">
-  <div class="sf-section-header">
-    <span class="sf-section-label">Polio — journalism &amp; documentary</span>
-    <div class="sf-section-rule"></div>
+<!-- SOCIAL -->
+<section id="social">
+  <div class="section-header">
+    <span class="section-label">Social &amp; short-form</span>
+    <div class="section-rule"></div>
   </div>
-  <div class="sf-polio-grid">
-    <div class="sf-polio-item">
-      <span class="sf-work-num">—</span>
+  <div class="social-grid">
+
+    <a class="social-item" href="https://www.youtube.com/watch?v=up_CLqrE3t0" target="_blank">
+      <div class="social-thumb-yt">
+        <img src="https://img.youtube.com/vi/up_CLqrE3t0/maxresdefault.jpg" alt="Ishmael Beah">
+      </div>
+      <div class="social-caption">
+        <p class="social-subject">Ishmael Beah</p>
+        <p class="social-sub">Child Soldier — YouTube</p>
+      </div>
+    </a>
+
+    <a class="social-item" href="https://www.instagram.com/unicefcanada/reel/C-3Pax7t01b/" target="_blank">
+      <div class="social-thumb">
+        <img src="Sevaun.png" alt="Sevaun Palvetzian — World Humanitarian Day">
+      </div>
+      <div class="social-caption">
+        <p class="social-subject">Sevaun Palvetzian</p>
+        <p class="social-sub">World Humanitarian Day — Instagram</p>
+      </div>
+    </a>
+
+    <a class="social-item" href="https://www.instagram.com/unicefcanada/reel/DDezCwFP2Tk/" target="_blank">
+      <div class="social-thumb">
+        <img src="Bayan.png" alt="Bayan's Blanket from Lebanon">
+      </div>
+      <div class="social-caption">
+        <p class="social-subject">Bayan's Blanket from Lebanon</p>
+        <p class="social-sub">UNICEF Canada — Instagram</p>
+      </div>
+    </a>
+
+    <a class="social-item" href="https://www.youtube.com/watch?v=Fp-6IHjmIhM" target="_blank">
+      <div class="social-thumb-yt">
+        <img src="https://img.youtube.com/vi/Fp-6IHjmIhM/maxresdefault.jpg" alt="Simu Liu">
+      </div>
+      <div class="social-caption">
+        <p class="social-subject">Simu Liu</p>
+        <p class="social-sub">World Children's Day — YouTube</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- LINKEDIN -->
+<section id="linkedin">
+  <div class="section-header">
+    <span class="section-label">LinkedIn Strategy</span>
+    <div class="section-rule"></div>
+  </div>
+  <p class="linkedin-intro">Currently leading LinkedIn content strategy for UNICEF Canada — developing editorial calendars, multimedia posts, carousels, and campaign content that builds audience and deepens donor engagement.</p>
+  <div class="linkedin-grid">
+    <a class="linkedin-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7457474606497460225" target="_blank">
+      <p class="linkedin-label">Carousel</p>
+      <p class="linkedin-title">RUTF at 30</p>
+    </a>
+    <a class="linkedin-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7455670628163997696" target="_blank">
+      <p class="linkedin-label">Photo Series</p>
+      <p class="linkedin-title">World Immunization Week 2026</p>
+    </a>
+    <a class="linkedin-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7453488653982392323" target="_blank">
+      <p class="linkedin-label">Campaign Post</p>
+      <p class="linkedin-title">5 Reasons Why Vaccines Matter</p>
+    </a>
+    <a class="linkedin-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7439753110862000129" target="_blank">
+      <p class="linkedin-label">Blog</p>
+      <p class="linkedin-title">UNICEF in Ethiopia</p>
+    </a>
+    <a class="linkedin-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7429202877899866112" target="_blank">
+      <p class="linkedin-label">Blog</p>
+      <p class="linkedin-title">WUL Family Day</p>
+    </a>
+  </div>
+</section>
+
+<!-- WRITING -->
+<section id="writing">
+  <div class="section-header">
+    <span class="section-label">Writing</span>
+    <div class="section-rule"></div>
+  </div>
+  <div class="writing-list">
+
+    <div class="writing-item">
       <div>
-        <p class="sf-work-tag">Dawn.com — Karachi, 2012</p>
-        <h3 class="sf-work-title">Drops Full of Hope</h3>
-        <p class="sf-work-role">Reporter, Editor &amp; Writer</p>
-        <p class="sf-work-desc">Article and short online documentary following a polio campaign on the ground in Karachi — one of the world's most challenging environments for immunization efforts.</p>
+        <p class="writing-pub">UNICEF Canada</p>
+        <h3 class="writing-title">5 Reasons to Smile in 2023</h3>
       </div>
-      <a class="sf-work-link" href="https://www.dawn.com/news/692184/drops-full-of-hope" target="_blank">Read ↗</a>
+      <a class="writing-link" href="https://www.unicef.ca/en/blog/5-reasons-smile-2023" target="_blank">Read ↗</a>
     </div>
-    <div class="sf-polio-item">
-      <span class="sf-work-num">—</span>
+
+    <div class="writing-item">
       <div>
-        <p class="sf-work-tag">Five-part series — Karachi, 2013</p>
-        <h3 class="sf-work-title">I Heart Karachi: Naseem Akhtar</h3>
-        <p class="sf-work-role">Producer &amp; Director</p>
-        <p class="sf-work-desc">A five-part series profiling ordinary people doing extraordinary work. This episode follows Naseem Akhtar, a lady health worker conducting polio drives in Karachi's highest-risk areas — undeterred by repeated death threats.</p>
+        <p class="writing-pub">UNDP Business Call to Action</p>
+        <h3 class="writing-title">Annual Report 2021</h3>
       </div>
-      <a class="sf-work-link" href="https://youtu.be/-T-KFEgbW_A?si=EPmCqPqPFMk30iM8" target="_blank">Watch ↗</a>
+      <a class="writing-link" href="https://www.businesscalltoaction.org/s/2021-Annuual-Report-vf.pdf" target="_blank">Read ↗</a>
     </div>
+
+    <div class="writing-item">
+      <div>
+        <p class="writing-pub">Dawn.com</p>
+        <h3 class="writing-title">Where the Dead Have No Name</h3>
+      </div>
+      <a class="writing-link" href="https://www.dawn.com/news/668165/where-the-dead-have-no-name" target="_blank">Read ↗</a>
+    </div>
+
+    <div class="writing-item">
+      <div>
+        <p class="writing-pub">BCtA / The Guardian</p>
+        <h3 class="writing-title">Building Bridges with Bytes: How Businesses Are Closing the Digital Divide</h3>
+      </div>
+      <a class="writing-link" href="https://www.businesscalltoaction.org/guardian-news/building-bridges-with-bytes-how-businesses-are-closing-the-digital-divide" target="_blank">Read ↗</a>
+    </div>
+
+    <div class="writing-item">
+      <div>
+        <p class="writing-pub">UNICEF Canada</p>
+        <h3 class="writing-title">Female Genital Mutilation: Combatting the Practice</h3>
+      </div>
+      <a class="writing-link" href="https://www.unicef.ca/en/blog/female-genital-mutilation-combatting-practice" target="_blank">Read ↗</a>
+    </div>
+
   </div>
 </section>
 
-<section class="sf-section" id="sf-social">
-  <div class="sf-section-header">
-    <span class="sf-section-label">Social &amp; short-form</span>
-    <div class="sf-section-rule"></div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header">
+    <span class="section-label">About</span>
+    <div class="section-rule"></div>
   </div>
-  <div class="sf-social-grid">
-    <a class="sf-social-item" href="https://www.youtube.com/watch?v=up_CLqrE3t0" target="_blank">
-      <p class="sf-social-subject">Ishmael Beah</p>
-      <p class="sf-social-sub">Child Soldier — YouTube</p>
-    </a>
-    <a class="sf-social-item" href="https://www.instagram.com/unicefcanada/reel/C-3Pax7t01b/" target="_blank">
-      <p class="sf-social-subject">Sevaun Palvetzian</p>
-      <p class="sf-social-sub">World Humanitarian Day — Instagram</p>
-    </a>
-    <a class="sf-social-item" href="https://www.instagram.com/unicefcanada/reel/DDezCwFP2Tk/" target="_blank">
-      <p class="sf-social-subject">Bayaan Blanket</p>
-      <p class="sf-social-sub">UNICEF Canada — Instagram</p>
-    </a>
-    <a class="sf-social-item" href="https://www.youtube.com/watch?v=Fp-6IHjmIhM" target="_blank">
-      <p class="sf-social-subject">Simu Liu</p>
-      <p class="sf-social-sub">World Children's Day — YouTube</p>
-    </a>
-  </div>
-</section>
-
-<section class="sf-section" id="sf-linkedin">
-  <div class="sf-section-header">
-    <span class="sf-section-label">LinkedIn Strategy</span>
-    <div class="sf-section-rule"></div>
-  </div>
-  <p class="sf-linkedin-intro">Currently leading LinkedIn content strategy for UNICEF Canada — developing editorial calendars, multimedia posts, carousels, and campaign content that builds audience and deepens donor engagement.</p>
-  <div class="sf-linkedin-grid">
-    <a class="sf-linkedin-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7457474606497460225" target="_blank">
-      <p class="sf-linkedin-label">Carousel</p>
-      <p class="sf-linkedin-title">RUTF at 30</p>
-    </a>
-    <a class="sf-linkedin-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7455670628163997696" target="_blank">
-      <p class="sf-linkedin-label">Photo Series</p>
-      <p class="sf-linkedin-title">World Immunization Week 2026</p>
-    </a>
-    <a class="sf-linkedin-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7453488653982392323" target="_blank">
-      <p class="sf-linkedin-label">Campaign post</p>
-      <p class="sf-linkedin-title">5 Reasons Why Vaccines Matter</p>
-    </a>
-    <a class="sf-linkedin-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7439753110862000129" target="_blank">
-      <p class="sf-linkedin-label">Blog</p>
-      <p class="sf-linkedin-title">UNICEF in Ethiopia</p>
-    </a>
-    <a class="sf-linkedin-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7429202877899866112" target="_blank">
-      <p class="sf-linkedin-label">Blog</p>
-      <p class="sf-linkedin-title">WUL Family Day</p>
-    </a>
-  </div>
-</section>
-
-<section class="sf-section" id="sf-rebrand">
-  <div class="sf-section-header">
-    <span class="sf-section-label">Case study — BCtA rebrand</span>
-    <div class="sf-section-rule"></div>
-  </div>
-  <p class="sf-linkedin-intro">Led the rebranding and digital relaunch of UNDP's Business Call to Action — refreshing the organization's website and social media presence between 2019 and 2021 to better reflect its mission of inclusive business in developing markets.</p>
-  <div class="sf-before-after">
-    <div class="sf-ba-side">
-      <div class="sf-ba-label-bar">
-        <span class="sf-ba-year">2019</span>
-        <span class="sf-ba-pill before">Before</span>
-      </div>
-      <div class="sf-ba-screen">
-        <p class="sf-ba-screen-placeholder">Screenshot</p>
-        <p class="sf-ba-screen-note">Replace with BCtA website / social screenshot from 2019</p>
-      </div>
-      <div class="sf-ba-caption">
-        <p class="sf-ba-caption-title">Original identity</p>
-        <p class="sf-ba-caption-desc">[Add brief description of the old look, tone, or messaging.]</p>
-      </div>
-    </div>
-    <div class="sf-ba-side">
-      <div class="sf-ba-label-bar">
-        <span class="sf-ba-year">2021</span>
-        <span class="sf-ba-pill after">After</span>
-      </div>
-      <div class="sf-ba-screen">
-        <p class="sf-ba-screen-placeholder">Screenshot</p>
-        <p class="sf-ba-screen-note">Replace with relaunched BCtA website / social screenshot from 2021</p>
-      </div>
-      <div class="sf-ba-caption">
-        <p class="sf-ba-caption-title">Relaunched brand</p>
-        <p class="sf-ba-caption-desc">[Add brief description of what changed and any outcomes or results.]</p>
-      </div>
-    </div>
-  </div>
-  <div class="sf-rebrand-scope">
-    <div class="sf-scope-item">
-      <p class="sf-scope-label">Scope</p>
-      <p class="sf-scope-val">Website redesign<br>Social media rebrand</p>
-    </div>
-    <div class="sf-scope-item">
-      <p class="sf-scope-label">Organization</p>
-      <p class="sf-scope-val">UNDP Business Call to Action</p>
-    </div>
-    <div class="sf-scope-item">
-      <p class="sf-scope-label">Role</p>
-      <p class="sf-scope-val">[Add Sara's specific role]</p>
-    </div>
-  </div>
-</section>
-
-<section class="sf-section" id="sf-about">
-  <div class="sf-section-header">
-    <span class="sf-section-label">About</span>
-    <div class="sf-section-rule"></div>
-  </div>
-  <div class="sf-about-grid">
-    <div class="sf-about-aside">
-      <strong>Currently available for</strong>
-      Video production &amp; editing<br>
-      Content &amp; LinkedIn strategy<br>
-      Campaign development<br>
-      Non-profit communications<br>
-      Journalism &amp; documentary<br>
-      <br>
+  <div class="about-grid">
+    <div class="about-aside">
       <strong>Based in</strong>
       [City, Country]
+      <br><br>
+      <strong>Contact</strong>
+      <a href="mailto:hello@sarafaruqi.com" style="color:var(--accent); text-decoration:none;">hello@sarafaruqi.com</a>
     </div>
-    <div class="sf-about-main">
-      <p>[Placeholder — replace with Sara's own words.] Sara Faruqi is a storyteller with over a decade of experience in international development communications. She has produced content for UNICEF Canada and UNDP that has reached donors, policymakers, and global audiences across platforms.</p>
+    <div class="about-main">
+      <p>[Placeholder — replace with Sara's own words.] Sara Faruqi is a communications strategist and multimedia storyteller with over a decade of experience in international development communications. She has produced content for UNICEF Canada and UNDP that has reached donors, policymakers, and global audiences across platforms.</p>
       <p>Her career spans video production and editing, long-form journalism, documentary filmmaking, social media strategy, and brand development. She has reported from the field on some of the world's most challenging public health crises — including polio eradication efforts in Karachi — and brought those stories to mainstream audiences.</p>
       <p>She brings a producer's eye for structure and an editor's instinct for rhythm to every project she takes on.</p>
-      <div class="sf-press-strip">
-        <span class="sf-press-outlet">Formerly at <span>Dawn.com</span></span>
-        <span class="sf-press-dot">·</span>
-        <span class="sf-press-outlet"><span>Daily Sabah</span></span>
-        <span class="sf-press-dot">·</span>
-        <span class="sf-press-outlet"><span>SOC Films</span> — two-time Oscar-winning production house</span>
+      <div class="press-strip">
+        <span class="press-outlet">Formerly at <span>Dawn.com</span></span>
+        <span class="press-dot">·</span>
+        <span class="press-outlet"><span>Daily Sabah</span></span>
+        <span class="press-dot">·</span>
+        <span class="press-outlet"><span>SOC Films</span> — two-time Oscar-winning production house</span>
       </div>
     </div>
   </div>
 </section>
 
-<footer class="sf-footer" id="sf-contact">
-  <div class="sf-footer-contact">
+<footer id="contact">
+  <div class="footer-contact">
     <a href="mailto:hello@sarafaruqi.com">hello@sarafaruqi.com</a>
   </div>
-  <p class="sf-footer-note">Sara Faruqi — Content &amp; Video Production</p>
+  <p class="footer-note">Sara Faruqi — Content &amp; Video Production</p>
 </footer>
 
-</div>
+</body>
+</html>
