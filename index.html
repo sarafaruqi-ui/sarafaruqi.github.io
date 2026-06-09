@@ -66,13 +66,13 @@ section { padding: 4rem 3rem; border-bottom: 0.5px solid var(--rule); }
 .work-link:hover { opacity: 0.6; }
 
 /* Social grid with thumbnails */
-.social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 0.5px solid var(--rule); }
+.social-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border: 0.5px solid var(--rule); }
 .social-item { text-decoration: none; color: var(--ink); display: block; transition: background 0.2s; border-right: 0.5px solid var(--rule); overflow: hidden; }
 .social-item:last-child { border-right: none; }
 .social-item:hover { background: var(--accent-light); }
-.social-thumb { width: 100%; aspect-ratio: 9/16; overflow: hidden; background: #1a1a18; max-height: 220px; }
+.social-thumb { width: 100%; aspect-ratio: 4/5; overflow: hidden; background: #1a1a18; }
 .social-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
-.social-thumb-yt { width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #1a1a18; }
+.social-thumb-yt { width: 100%; aspect-ratio: 4/5; overflow: hidden; background: #1a1a18; }
 .social-thumb-yt img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .social-caption { padding: 1rem 1.2rem; }
 .social-subject { font-family: var(--serif); font-size: 0.88rem; margin-bottom: 0.3rem; line-height: 1.3; }
@@ -81,7 +81,11 @@ section { padding: 4rem 3rem; border-bottom: 0.5px solid var(--rule); }
 /* LinkedIn */
 .linkedin-intro { font-size: 0.85rem; line-height: 1.8; color: var(--ink-muted); max-width: 60ch; margin-bottom: 2.5rem; }
 .linkedin-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border: 0.5px solid var(--rule); }
-.linkedin-item { padding: 1.5rem 1.2rem; border-right: 0.5px solid var(--rule); text-decoration: none; color: var(--ink); display: block; transition: background 0.2s; }
+.linkedin-item { border-right: 0.5px solid var(--rule); text-decoration: none; color: var(--ink); display: block; transition: background 0.2s; overflow: hidden; }
+.linkedin-thumb { width: 100%; aspect-ratio: 4/3; overflow: hidden; background: #1a1a18; }
+.linkedin-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: opacity 0.3s; }
+.linkedin-item:hover .linkedin-thumb img { opacity: 0.85; }
+.linkedin-caption { padding: 1rem 1.2rem; }
 .linkedin-item:last-child { border-right: none; }
 .linkedin-item:hover { background: var(--accent-light); }
 .linkedin-label { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
@@ -120,7 +124,6 @@ footer { padding: 2rem 3rem; border-top: 0.5px solid var(--rule); display: flex;
   <span class="nav-name">Sara Faruqi</span>
   <ul class="nav-links">
     <li><a href="#video">Video</a></li>
-    <li><a href="#polio">Polio</a></li>
     <li><a href="#social">Social</a></li>
     <li><a href="#linkedin">LinkedIn</a></li>
     <li><a href="#writing">Writing</a></li>
@@ -146,6 +149,21 @@ footer { padding: 2rem 3rem; border-top: 0.5px solid var(--rule); display: flex;
     <div class="section-rule"></div>
   </div>
   <div class="video-grid">
+
+
+    <a href="https://youtu.be/-T-KFEgbW_A?si=EPmCqPqPFMk30iM8" target="_blank" class="video-item" style="text-decoration:none; color:inherit;">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/-T-KFEgbW_A/maxresdefault.jpg" alt="I Heart Karachi: Naseem Akhtar">
+        <div class="play-btn"></div>
+      </div>
+      <div class="video-body">
+        <p class="video-tag">Five-part series — Karachi, 2013</p>
+        <h3 class="video-title">I Heart Karachi: Naseem Akhtar</h3>
+        <p class="video-role">Producer &amp; Director</p>
+        <p class="video-desc">A five-part series profiling ordinary people doing extraordinary work. Naseem Akhtar, a lady health worker, conducted polio drives in Karachi's highest-risk areas — undeterred by repeated death threats.</p>
+        <span class="video-link">Watch ↗</span>
+      </div>
+    </a>
 
     <a href="https://www.youtube.com/watch?v=brnw_wbrK8A" target="_blank" class="video-item" style="text-decoration:none; color:inherit;">
       <div class="video-thumb">
@@ -212,7 +230,7 @@ footer { padding: 2rem 3rem; border-top: 0.5px solid var(--rule); display: flex;
         <p class="video-tag">Yusra Community Center</p>
         <h3 class="video-title">A Place of Comfort</h3>
         <p class="video-role">Videographer, Producer &amp; Editor</p>
-        <p class="video-desc">Yusra Community Center provides a fun and safe learning space for Syrian refugee children who otherwise have no access to learning. It is a place of guidance for families, providing or assisting with medical needs, legal matters, skills training, language and literacy facilities, and information services.</p>
+        <p class="video-desc">Yusra Community Center provides a fun and safe learning space for Syrian refugee children who otherwise have no access to learning.</p>
         <span class="video-link">Watch ↗</span>
       </div>
     </a>
@@ -221,42 +239,7 @@ footer { padding: 2rem 3rem; border-top: 0.5px solid var(--rule); display: flex;
 </section>
 
 <!-- POLIO -->
-<section id="polio">
-  <div class="section-header">
-    <span class="section-label">Polio — journalism &amp; documentary</span>
-    <div class="section-rule"></div>
-  </div>
-  <div class="polio-grid">
-    <div class="polio-item">
-      <span class="polio-num">—</span>
-      <div>
-        <p class="work-tag">Dawn.com — Karachi, 2012</p>
-        <h3 class="work-title">Drops Full of Hope</h3>
-        <p class="work-role">Reporter, Editor &amp; Writer</p>
-        <p class="work-desc">Article and short online documentary following a polio campaign on the ground in Karachi — one of the world's most challenging environments for immunization efforts.</p>
-      </div>
-      <a class="work-link" href="https://www.dawn.com/news/692184/drops-full-of-hope" target="_blank">Read ↗</a>
-    </div>
-    <div class="polio-item">
-      <span class="polio-num">—</span>
-      <div>
-        <p class="work-tag">Five-part series — Karachi, 2013</p>
-        <h3 class="work-title">I Heart Karachi: Naseem Akhtar</h3>
-        <p class="work-role">Producer &amp; Director</p>
-        <p class="work-desc">A five-part series profiling ordinary people doing extraordinary work. This episode follows Naseem Akhtar, a lady health worker conducting polio drives in Karachi's highest-risk areas — undeterred by repeated death threats.</p>
-        <div style="margin-top:1rem;">
-          <a href="https://youtu.be/-T-KFEgbW_A?si=EPmCqPqPFMk30iM8" target="_blank" style="display:block;">
-            <div style="position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; background:#1a1a18; border-radius:2px;">
-              <img src="https://img.youtube.com/vi/-T-KFEgbW_A/maxresdefault.jpg" alt="I Heart Karachi" style="width:100%;height:100%;object-fit:cover;display:block;">
-              <div class="play-btn"></div>
-            </div>
-          </a>
-        </div>
-      </div>
-      <a class="work-link" href="https://youtu.be/-T-KFEgbW_A?si=EPmCqPqPFMk30iM8" target="_blank">Watch ↗</a>
-    </div>
-  </div>
-</section>
+
 
 <!-- SOCIAL -->
 <section id="social">
@@ -278,7 +261,7 @@ footer { padding: 2rem 3rem; border-top: 0.5px solid var(--rule); display: flex;
 
     <a class="social-item" href="https://www.instagram.com/unicefcanada/reel/C-3Pax7t01b/" target="_blank">
       <div class="social-thumb">
-        <img src="Sevaun.png" alt="Sevaun Palvetzian — World Humanitarian Day">
+        <img src="sevaun.png" alt="Sevaun Palvetzian — World Humanitarian Day">
       </div>
       <div class="social-caption">
         <p class="social-subject">Sevaun Palvetzian</p>
@@ -288,7 +271,7 @@ footer { padding: 2rem 3rem; border-top: 0.5px solid var(--rule); display: flex;
 
     <a class="social-item" href="https://www.instagram.com/unicefcanada/reel/DDezCwFP2Tk/" target="_blank">
       <div class="social-thumb">
-        <img src="Bayan.png" alt="Bayan's Blanket from Lebanon">
+        <img src="bayan.png" alt="Bayan's Blanket from Lebanon">
       </div>
       <div class="social-caption">
         <p class="social-subject">Bayan's Blanket from Lebanon</p>
@@ -306,6 +289,16 @@ footer { padding: 2rem 3rem; border-top: 0.5px solid var(--rule); display: flex;
       </div>
     </a>
 
+    <a class="social-item" href="https://www.instagram.com/unicefcanada/reel/C-GoSonpFOG/" target="_blank">
+      <div class="social-thumb">
+        <img src="saara_c.png" alt="Saara Chaudry — $1 a Day">
+      </div>
+      <div class="social-caption">
+        <p class="social-subject">Saara Chaudry</p>
+        <p class="social-sub">$1 a Day — Instagram</p>
+      </div>
+    </a>
+
   </div>
 </section>
 
@@ -318,24 +311,39 @@ footer { padding: 2rem 3rem; border-top: 0.5px solid var(--rule); display: flex;
   <p class="linkedin-intro">Currently leading LinkedIn content strategy for UNICEF Canada — developing editorial calendars, multimedia posts, carousels, and campaign content that builds audience and deepens donor engagement.</p>
   <div class="linkedin-grid">
     <a class="linkedin-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7457474606497460225" target="_blank">
-      <p class="linkedin-label">Carousel</p>
-      <p class="linkedin-title">RUTF at 30</p>
+      <div class="linkedin-thumb"><img src="rutf_30.png" alt="RUTF at 30"></div>
+      <div class="linkedin-caption">
+        <p class="linkedin-label">Carousel</p>
+        <p class="linkedin-title">RUTF at 30</p>
+      </div>
     </a>
     <a class="linkedin-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7455670628163997696" target="_blank">
-      <p class="linkedin-label">Photo Series</p>
-      <p class="linkedin-title">World Immunization Week 2026</p>
+      <div class="linkedin-thumb"><img src="world_immunization_week.png" alt="World Immunization Week"></div>
+      <div class="linkedin-caption">
+        <p class="linkedin-label">Photo Series</p>
+        <p class="linkedin-title">World Immunization Week 2026</p>
+      </div>
     </a>
     <a class="linkedin-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7453488653982392323" target="_blank">
-      <p class="linkedin-label">Campaign Post</p>
-      <p class="linkedin-title">5 Reasons Why Vaccines Matter</p>
+      <div class="linkedin-thumb"><img src="5_reasons_vaccines.png" alt="5 Reasons Why Vaccines Matter"></div>
+      <div class="linkedin-caption">
+        <p class="linkedin-label">Campaign Post</p>
+        <p class="linkedin-title">5 Reasons Why Vaccines Matter</p>
+      </div>
     </a>
     <a class="linkedin-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7439753110862000129" target="_blank">
-      <p class="linkedin-label">Blog</p>
-      <p class="linkedin-title">UNICEF in Ethiopia</p>
+      <div class="linkedin-thumb"><img src="unicef_in_ethiopia.png" alt="UNICEF in Ethiopia"></div>
+      <div class="linkedin-caption">
+        <p class="linkedin-label">Blog</p>
+        <p class="linkedin-title">UNICEF in Ethiopia</p>
+      </div>
     </a>
     <a class="linkedin-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7429202877899866112" target="_blank">
-      <p class="linkedin-label">Blog</p>
-      <p class="linkedin-title">WUL Family Day</p>
+      <div class="linkedin-thumb"><img src="wul_family_day.png" alt="WUL Family Day"></div>
+      <div class="linkedin-caption">
+        <p class="linkedin-label">Blog</p>
+        <p class="linkedin-title">WUL Family Day</p>
+      </div>
     </a>
   </div>
 </section>
@@ -347,6 +355,14 @@ footer { padding: 2rem 3rem; border-top: 0.5px solid var(--rule); display: flex;
     <div class="section-rule"></div>
   </div>
   <div class="writing-list">
+
+    <div class="writing-item">
+      <div>
+        <p class="writing-pub">Dawn.com — Karachi, 2012</p>
+        <h3 class="writing-title">Drops Full of Hope</h3>
+      </div>
+      <a class="writing-link" href="https://www.dawn.com/news/692184/drops-full-of-hope" target="_blank">Read ↗</a>
+    </div>
 
     <div class="writing-item">
       <div>
@@ -397,25 +413,19 @@ footer { padding: 2rem 3rem; border-top: 0.5px solid var(--rule); display: flex;
     <span class="section-label">About</span>
     <div class="section-rule"></div>
   </div>
-  <div class="about-grid">
-    <div class="about-aside">
-      <strong>Based in</strong>
-      Toronto, Canada
-      <br><br>
-      <strong>Contact</strong>
-      <a href="mailto:sara.faruqi@gmail.com" style="color:var(--accent); text-decoration:none;">sara.faruqi@gmail.com</a>
-    </div>
-    <div class="about-main">
-      <p>[Placeholder — replace with Sara's own words.] Sara Faruqi is a communications strategist and multimedia storyteller with over a decade of experience in international development communications. She has produced content for UNICEF Canada and UNDP that has reached donors, policymakers, and global audiences across platforms.</p>
-      <p>Her career spans video production and editing, long-form journalism, documentary filmmaking, social media strategy, and brand development. She has reported from the field on some of the world's most challenging public health crises — including polio eradication efforts in Karachi — and brought those stories to mainstream audiences.</p>
-      <p>She brings a producer's eye for structure and an editor's instinct for rhythm to every project she takes on.</p>
-      <div class="press-strip">
-        <span class="press-outlet">Formerly at <span>Dawn.com</span></span>
-        <span class="press-dot">·</span>
-        <span class="press-outlet"><span>Daily Sabah</span></span>
-        <span class="press-dot">·</span>
-        <span class="press-outlet"><span>SOC Films</span> — two-time Oscar-winning production house</span>
-      </div>
+  <div style="font-size:0.72rem; line-height:1.8; color:var(--ink-muted);">
+    <strong style="display:block; font-weight:400; color:var(--ink); font-family:var(--serif); font-size:1rem; margin-bottom:0.5rem; font-style:italic;">Based in</strong>
+    Toronto, Canada
+    <br><br>
+    <strong style="display:block; font-weight:400; color:var(--ink); font-family:var(--serif); font-size:1rem; margin-bottom:0.5rem; font-style:italic;">Contact</strong>
+    <a href="mailto:sara.faruqi@gmail.com" style="color:var(--accent); text-decoration:none;">sara.faruqi@gmail.com</a>
+    <br><br>
+    <div style="display:flex; gap:1.5rem; flex-wrap:wrap; margin-top:0.5rem;">
+      <span>Formerly at <span style="color:var(--accent);">Dawn.com</span></span>
+      <span style="color:var(--rule);">·</span>
+      <span style="color:var(--accent);">Daily Sabah</span>
+      <span style="color:var(--rule);">·</span>
+      <span style="color:var(--accent);">SOC Films</span><span> — two-time Oscar-winning production house</span>
     </div>
   </div>
 </section>
